@@ -5,7 +5,8 @@
 %%% End:
 
 \chapter{Union-Find}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=================================================================================================================================================
+
 \section{Dynamic Connectivity}
 \subsection{Applications involve manipulating objects of all types}
 \begin{itemize}
@@ -66,52 +67,130 @@ int count()                     & number of components                          
 \end{center}
 \end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=================================================================================================================================================
 \section{Quick Find}
+%=================================================================================================================================================
 
 \textbf{Data Structure}
 \begin{itemize}
 \item Integer array id[] of size N.
 \item Interpretation: p and q are connected if they have the same id.
 \end{itemize}
-% \begin{minted}
-% [
-% frame=lines,
-% framesep=2mm,
-% baselinestretch=1.2,
-% bgcolor=white,
-% fontsize=\footnotesize,
-% linenos
-% ]
-% {java}
-% import numpy as np
 
-% def incmatrix(genl1,genl2):
-% m = len(genl1)
-% n = len(genl2)
-% M = None #to become the incidence matrix
-% VT = np.zeros((n*m,1), int)  #dummy variable
 
-% #compute the bitwise xor matrix
-% M1 = bitxormatrix(genl1)
-% M2 = np.triu(bitxormatrix(genl2),1) 
+\textbf{Find} Check if p and q have the same id.
+\textbf{Union} to merge componenets containing p and q, change all entries whose id equals to id[p] to id[q]
 
-% for i in range(m-1):
-% for j in range(i+1, m):
-% [r,c] = np.where(M2 == M1[i,j])
-% for k in range(len(r)):
-% VT[(i)*n + r[k]] = 1;
-% VT[(i)*n + c[k]] = 1;
-% VT[(j)*n + r[k]] = 1;
-% VT[(j)*n + c[k]] = 1;
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{java}
+public class QuickFind
+{
+        private int[] id;
 
-% if M is None:
-% M = np.copy(VT)
-% else:
-% M = np.concatenate((M, VT), 1)
+        public QuickFind(int N)
+        {
+                id= new int[N];
+                for ( int i = 0; i < N; i++)
+                        id[i] = i;
+        }
+        
+        public boolean find(int p, int q)
+        {
+                return id[p] == id[q];
+        }
+        
+        public void unite(int p, int q)
+        {
+                int pid = id[p];
+                for (int i=0; i< id.length; i++)
+                        if (id[i] == pid) id[i] = id[q];
+        }
+}
 
-% VT = np.zeros((n*m,1), int)
+\end{minted}
 
-% return M
-% \end{minted}
+\textbf{Cost Model} Number of array acesses for read or write.
 
+\begin{table}[h]
+\centering
+\begin{tabular}{clll}
+\hline
+\multicolumn{1}{|c|}{\textbf{Algorithm}} & \multicolumn{1}{l|}{\textbf{initialize}} & \multicolumn{1}{l|}{\textbf{union}} & \multicolumn{1}{l|}{\textbf{find}} \\ \hline
+Quick-Find                               & N                                        & N                                   & \multicolumn{1}{c}{1}             
+\end{tabular}
+\end{table}
+
+\textbf{ex.} takes $N^2$ array acesses to process a sequence of N union commands on N objects.
+
+
+%=================================================================================================================================================
+\section{Quick Union}
+%=================================================================================================================================================
+
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+fontsize=\footnotesize,
+linenos
+]{java}
+public class QuickUnionUF
+{
+  private int[] id;
+   
+  public QuickUnionUF(int N)
+  {
+    id = new int[N];
+    for (int i = 0; i < N; i++) id[i] = i;
+  }
+  
+  private int root(int i)
+  {
+    while(i != id[i]) i = id[i];
+    return i;
+  }
+  
+  public bolean connected(int p, int q)
+  {
+    return root(p) == root(q);
+  }
+  
+  public void union(int p, int q)
+  {
+    int i = root(p);
+    int j = root(q);
+    int[i] = j;
+  }
+}
+\end{minted}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{clll}
+\hline
+\multicolumn{1}{|c|}{\textbf{Algorithm}} & \multicolumn{1}{l|}{\textbf{initialize}} & \multicolumn{1}{l|}{\textbf{union}} & \multicolumn{1}{l|}{\textbf{find}} \\ \hline
+Quick-Find                               & N                                        & N                                   & \multicolumn{1}{c}{1}   \\ \hline
+Quick-Union                              & N                                        & N                                   & N          
+\end{tabular}
+\end{table}
+
+\textbf{Quick-Find defect}
+\begin{itemize}
+\item Union too expensive (N array acesses).
+\item Trees are flat, but too expensive to keep them flat.
+\end{itemize}
+
+\textbf{Quick-Union defect}
+\begin{itemize}
+\item Trees can get tall.
+\item Find too expensive ( could be N array accesses).
+\end{itemize}
+
+\subsection{improvements}
