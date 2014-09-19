@@ -20,19 +20,27 @@
 
 %
 \usepackage{amsmath}
+%math on tables
+\usepackage{tabu}
 %chapter number title position
 \usepackage{quotchap}
+%glossary
+
 
 \author{Dario L}
-\title{Mathematics}
+\title{Precalculus}
 \date{\today}
 
 \begin{document}
+
 \frontmatter
 \maketitle
 
 \chapter*{Preface}
-\textbf{Mathematics possesses not only truth, but supreme beauty,a beauty cold and austere, like that of a sculpture,
+The goal of this notes, is to have a formal reference of the important subjects necessary to understand calculus and more advanced subjects.
+\\
+\\
+\textbf{Mathematics possesses not only truth, but supreme beauty, a beauty cold and austere, like that of a sculpture,
 and capable of stern perfection, such as only great art can show.\\ --Bertrand Russell}
 
 
@@ -42,7 +50,77 @@ and capable of stern perfection, such as only great art can show.\\ --Bertrand R
 \mainmatter
 %preface
 
-\include{./tex_files/chapter01}
+%\include{./tex_files/chapter01}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\chapter{Foundations}
+\section{Greek Alphabet}
+
+\centering
+$\begin{tabu}{lllllll}
+\cline{1-3} \cline{5-7}
+\multicolumn{1}{|l|}{Letter} & \multicolumn{1}{l|}{Lower} & \multicolumn{1}{l|}{Upper} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Letter} & \multicolumn{1}{l|}{Lower} & \multicolumn{1}{l|}{Upper} \\ \cline{1-3} \cline{5-7} 
+alpha & \alpha & A &  & nu & \nu & N \\
+beta & \beta & B &  & xi & \xi & \Xi \\
+gamma & \gamma & \Gamma &  & omicron & o & O \\
+delta & \delta & \Delta &  & pi & \pi & \Pi \\
+epsilon & \epsilon & E &  & rho & \rho & P \\
+zeta & \zeta & Z &  & sigma & \sigma & \Sigma \\
+eta & \eta & H &  & tau & \tau & T \\
+theta & \theta & \Theta &  & upsilon & \upsilon & \Upsilon \\
+iota & \iota & I &  & phi & \phi & \Phi \\
+kappa & \kappa & K &  & chi & \chi & X \\
+lambda & \lambda & \Lambda &  & psi & \psi & \Psi \\
+mu & \mu & Mu &  & omega & \omega & \Omega
+\end{tabu}$
+
+\raggedright
+\section{Language of mathematics}
+
+The language of mathematics is a system to describe concrete ideas.
+\section{Sets}
+A set is a collection of distinct objects.
+\subsection{Special Sets}
+There are some sets that hold a great mathematical importance and are used regularly everywhere so they have acquire their own names and their conventions.
+
+The empty set is one example, is usually denoted by $\emptyset$ or {}.
+Different families of numbers have their own names as well like:
+\begin{itemize}
+	\item Prime Numbers - $\mathbb{P}$ or \textbf{P} = \{2, 3, 5, 7, 11, 13, 17, 19, 23, ...\}
+	\item Natural Numbers - $\mathbb{N}$ or \textbf{N} = \{1, 2, 3, 4, ...\} sometimes 0 is considered as well
+	\item Integers - $\mathbb{Z}$ or \textbf{Z} = \{..., -2, -1, 0, 1, 2, ...\}
+	\item Real - $\mathbb{R}$ or \textbf{R} = Every number that can be found on the number line
+	\item Complex Numbers - $\mathbb{C}$ or \textbf{C} = Every number that can be expressed in the form $a+bi$
+	\item Irrational Numbers - $\mathbb{I}$ or \textbf{I} = any real number that cannot be expressed as a/b where a,b are integers
+	\item Rational Numbers - $\mathbb{Q}$ or \textbf{Q} = any number that can be expressed as a/b where a,b are integers
+\end{itemize}
+\subsection{Operations}
+There are several operations for construction new sets.
+\subsubsection{Unions}
+The union of \textbf{A} and \textbf{B} is denoted by $\textbf{A} \cup \textbf{B}$, can be also seen as the set of elements that belong to \textbf{A} or \textbf{B}.
+
+\subsubsection{Intersections}
+The intersection of \textbf{A} and \textbf{B} is denoted by $\textbf{A} \cap \textbf{B}$, can be also seen as the set of elements that belong to \textbf{A} and \textbf{B}. If \textbf{A} and \textbf{B} don't have any elements in common their intersection is the $\emptyset$ and they are said to be disjoint. 
+
+\subsubsection{Complements}
+A set complement is everything else that does not belong in it. $\textbf{A} \cap \textbf{A} = \Omega$
 
 
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\chapter{Functions}
+\section{Linear}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\section{Quadratic}
+\section{Rational and Polynomial}
+\section{Exponential and Logarithmic}
+\subsection{Binomial Theorem}
+\section{Trigonometric}
+\section{Hyperbolics}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\chapter{Inequalities}
+\chapter{Geometry}
+\chapter{Sequences and Series}
+\chapter{Conics}
+\chapter{Trigonometry}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \end{document}
