@@ -17,7 +17,9 @@
 	top=2mm,
 	bottom=2mm,
 }
-
+%proofs
+\usepackage{amssymb}
+\newcommand{\justif}[2]{&{#1}&\text{#2}}
 %
 \usepackage{amsmath}
 %math on tables
@@ -25,6 +27,7 @@
 %chapter number title position
 \usepackage{quotchap}
 %glossary
+
 
 
 \author{Dario L}
@@ -107,10 +110,44 @@ A set complement is everything else that does not belong in it. $\textbf{A} \cap
 
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Functions}
+A function $f$ is a rule that assigns to each element x in a set A exactly one element, called $f(x)$, in a set B
+
+\textbf{MACHINEDIAGRAMHERE}
+\subsubsection{A function can be represented in four different ways :}
+\begin{itemize}
+	\item verbally
+	\item algebraically
+	\item visually
+	\item numerically
+\end{itemize}
 \section{Linear}
+A linear equation in one variable is an equation equivalent to one of the form $$ ax+b=0 $$ where a and b are real numbers and x is the variable.
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \section{Quadratic}
+A quadratic equation is and equation of the form $$ax^2+bx+c=0 $$ where a,b, and c are real numbers with a $\neq$ 0
+\subsubsection{zero-product property}
+$AB=0 \iff A=0$ or $B=0$
+\subsubsection{factoring}
+\subsubsection{Completing the square}
+\subsubsection{Quadratic Formula}
+The roots of the quadratic equation $ax^2+bx+c=0$, where $a\neq0$ are $$ x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+\textbf{PROOF:}
+\begin{alignat*}{2}
+					0 &= ax^2+bx+c                                             \justif{\quad}{starting from the base polynomial}\\
+	   \frac{-c}{a} &= x^2+\frac{b}{a}x                                        \justif{\quad}{divide by a}\\
+    x^2+\frac{b}{a}x+(\frac{b}{2a})^2&= -\frac{c}{a}+ (\frac{b}{2a})^2         \justif{\quad}{completing the square with $(\frac{b}{2a}$})^2 \\
+    (x+\frac{b}{2a})^2&=\frac{-4ac+b^2}{4a^2}                                                  \justif{\quad}{Perfect Square}\\
+	 x+\frac{b}{2a}  &= \pm\frac{\sqrt{b^2-4ac}}{2a}                          \justif{\quad}{Take square root}\\
+    x &= \frac{-b\pm\sqrt{b^2-4ac}}{2a}   \justif{\quad}{subtract $\frac{b}{2a}$}  
+\end{alignat*}
+
+\textbf{Descriminant:} the discriminant of the general quadratic $ax^2+bx+c=0 (a\neq0) $ is $D=b^2-4ac$ where
+\begin{itemize}
+\item if $D > 0$ then the equation has two distinct real solutions.
+\item if $D = 0 $ then the equation has exactly one real solution.
+\item if $D < 0$ then the equation has no real solution.
+\end{itemize}
 \section{Rational and Polynomial}
 \section{Exponential and Logarithmic}
 \subsection{Binomial Theorem}
@@ -118,6 +155,20 @@ A set complement is everything else that does not belong in it. $\textbf{A} \cap
 \section{Hyperbolics}
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \chapter{Inequalities}
+\chapter{Lines}
+The slope of a line or the steepness of a line is how quicly it rises or falls as we move from right to left. We define run to be the distance in the x axis and rise to be the corresponding distance in the y axis. The slope of a line can be then be expressed by
+$$ slope = rate of change = m = \frac{rise}{run} = \frac{y}{x} = \frac{y_2-y_1}{x_2-x_1}$$
+
+\subsubsection{General Equation of a line}
+The graph of every \textbf{linear equation} $Ax+By+C=0$ if (A,B not both zero) is a line. 
+\subsubsection{point-slope form of the equation of a line}
+$$ y-y_1=m(x-x_1)$$
+\subsubsection{slope-intercept form of the equation of a line}
+$$y=mx+b$$
+\subsubsection{parallel lines}
+two nonvertical lines are parallel $\iff$ they have the same slope
+\subsubsection{Perpendicular lines}
+two lines with slopes $m_1$ and $m_2$ are perpendicular $\iff m_1m_2=-1$, that is their slopes are negative reciprocals: $$ m_2 = -\frac{1}{m_1}$$ also, a horizontal line $m=0$ is perpendicular to a vertical line.
 \chapter{Geometry}
 \chapter{Sequences and Series}
 \chapter{Conics}
